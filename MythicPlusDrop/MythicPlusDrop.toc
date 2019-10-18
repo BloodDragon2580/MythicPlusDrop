@@ -1,0 +1,14 @@
+## Interface: 80205
+## Title: |cffd6266cMythicPlusDrop|r
+## Version: 1.1
+## Author: BloodDragon2580
+## Notes: Info for Mythic Dungeons
+
+
+embeds.xml
+
+Locales\Locales.xml
+
+Core.lua
+timer.lua
+Tooltip.lua
