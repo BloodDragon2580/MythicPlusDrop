@@ -1,6 +1,6 @@
 ## Interface: 80205
 ## Title: |cffd6266cMythicPlusDrop|r
-## Version: 1.2
+## Version: 1.3
 ## Author: BloodDragon2580
 ## Notes: Info for Mythic Dungeons
 
