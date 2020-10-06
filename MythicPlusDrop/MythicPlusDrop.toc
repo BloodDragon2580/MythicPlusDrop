@@ -1,6 +1,6 @@
 ## Interface: 90001
 ## Title: |cffd6266cMythicPlusDrop|r
-## Version: 3.0
+## Version: 3.1
 ## Author: BloodDragon2580
 ## Notes: Info for Mythic Dungeons
 
