@@ -1,6 +1,6 @@
-## Interface: 90001
+## Interface: 90002
 ## Title: |cffd6266cMythicPlusDrop|r
-## Version: 4.0
+## Version: 4.1
 ## Author: BloodDragon2580
 ## Notes: Info for Mythic Dungeons
 
