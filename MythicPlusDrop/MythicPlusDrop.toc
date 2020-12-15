@@ -1,9 +1,8 @@
 ## Interface: 90002
 ## Title: |cffd6266cMythicPlusDrop|r
-## Version: 4.1
+## Version: 4.2
 ## Author: BloodDragon2580
 ## Notes: Info for Mythic Dungeons
-
 
 embeds.xml
 

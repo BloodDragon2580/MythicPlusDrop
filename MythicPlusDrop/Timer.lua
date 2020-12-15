@@ -1,16 +1,16 @@
 MythicPlusDropCMTimer = {}
-MYTHIC_CHEST_TIMERS_LOOT_HEIGHT = 18;
+MYTHIC_CHEST_TIMERS_LOOT_HEIGHT = 20;
 -- ---------------------------------------------------------------------------------------------------------------------
 function MythicPlusDropCMTimer:Init()
 
   TimersPosition = {};
   TimersPosition.left = 29;
-  TimersPosition.top = -59;
+  TimersPosition.top = -62;
   TimersPosition.relativePoint = "TOPLEFT";
 
   LootPosition = {};
   LootPosition.right = -29;
-  LootPosition.top = -59;
+  LootPosition.top = -62;
   LootPosition.relativePoint = "TOPRIGHT";
 
   MythicPlusDropCMTimer.isCompleted = false;
@@ -23,7 +23,7 @@ function MythicPlusDropCMTimer:Init()
   MythicPlusDropCMTimer.frame:SetPoint(TimersPosition.relativePoint,TimersPosition.left,TimersPosition.top);
   MythicPlusDropCMTimer.frame:EnableMouse(false);
   MythicPlusDropCMTimer.frame:SetWidth(190);
-  MythicPlusDropCMTimer.frame:SetHeight(18);
+  MythicPlusDropCMTimer.frame:SetHeight(MYTHIC_CHEST_TIMERS_LOOT_HEIGHT);
 
   MythicPlusDropCMTimer.lootFrame = CreateFrame("Frame", "LootTimer", ScenarioChallengeModeBlock);
   MythicPlusDropCMTimer.lootFrame:SetPoint(LootPosition.relativePoint,LootPosition.right,LootPosition.top);
@@ -155,12 +155,12 @@ function MythicPlusDropCMTimer:Draw()
   end
 
   -- -- Chest Timers
-  if not MythicPlusDropCMTimer.frames.timer then
+  if not MythicPlusDropCMTimer.frames.chesttimer then
     local label = CreateFrame("Frame", nil, MythicPlusDropCMTimer.frame)
     label:SetAllPoints()
     label.text = label:CreateFontString(nil, "BACKGROUND", "GameFontHighlight");
     label.text:SetPoint("TOPLEFT", 0,0);
-    MythicPlusDropCMTimer.frames.timer = {
+    MythicPlusDropCMTimer.frames.chesttimer = {
       labelFrame = label
     }
   end
@@ -172,29 +172,38 @@ function MythicPlusDropCMTimer:Draw()
     lootLevel = MYTHIC_CHEST_TIMERS_LOOT_ILVL[cmLevel];
   end
 
+  if cmLevel > 19 then
+    MythicPlusDropCMTimer.frames.chestloot.labelFrame.text:SetText("100% 3x|cFF00FF00" .. lootLevel);
+  end
   if cmLevel < 20 then
-    MythicPlusDropCMTimer.frames.chestloot.labelFrame.text:SetText("3x|cFF00FF00" .. lootLevel .. "+");
-  else
-    MythicPlusDropCMTimer.frames.chestloot.labelFrame.text:SetText("5x|cFF00FF00" .. lootLevel .. "+");
+    MythicPlusDropCMTimer.frames.chestloot.labelFrame.text:SetText("80% 3x|cFF00FF00" .. lootLevel);
+  end
+  if cmLevel < 19 then
+    MythicPlusDropCMTimer.frames.chestloot.labelFrame.text:SetText("60% 3x|cFF00FF00" .. lootLevel);
+  end
+  if cmLevel < 18 then
+    MythicPlusDropCMTimer.frames.chestloot.labelFrame.text:SetText("40% 3x|cFF00FF00" .. lootLevel);
+  end
+  if cmLevel < 17 then
+    MythicPlusDropCMTimer.frames.chestloot.labelFrame.text:SetText("20% 3x|cFF00FF00" .. lootLevel);
+  end
+  if cmLevel < 16 then
+    MythicPlusDropCMTimer.frames.chestloot.labelFrame.text:SetText("2x|cFF00FF00" .. lootLevel);
   end
 
   if timeLeft3 > 0 then
-    MythicPlusDropCMTimer.frames.timer.labelFrame.text:SetText(format(MythicPlusDrop.L["Keystone_Level"], '+3')..": "..MythicPlusDropCMTimer:FormatSeconds(timeLeft3));
-    MythicPlusDropCMTimer.frames.timer.labelFrame.text:SetFontObject("GameFontHighlight");
+    MythicPlusDropCMTimer.frames.chesttimer.labelFrame.text:SetText(format(MythicPlusDrop.L["Keystone_Level"], '+3')..": "..MythicPlusDropCMTimer:FormatSeconds(timeLeft3));
+    MythicPlusDropCMTimer.frames.chesttimer.labelFrame.text:SetFontObject("GameFontHighlight");
   elseif timeLeft2 > 0 then
-    MythicPlusDropCMTimer.frames.timer.labelFrame.text:SetText(format(MythicPlusDrop.L["Keystone_Level"], '+2')..": "..MythicPlusDropCMTimer:FormatSeconds(timeLeft2));
-    MythicPlusDropCMTimer.frames.timer.labelFrame.text:SetFontObject("GameFontHighlight");
+    MythicPlusDropCMTimer.frames.chesttimer.labelFrame.text:SetText(format(MythicPlusDrop.L["Keystone_Level"], '+2')..": "..MythicPlusDropCMTimer:FormatSeconds(timeLeft2));
+    MythicPlusDropCMTimer.frames.chesttimer.labelFrame.text:SetFontObject("GameFontHighlight");
   elseif timeLeft1 > 0 then
-    MythicPlusDropCMTimer.frames.timer.labelFrame.text:SetText(format(MythicPlusDrop.L["Keystone_Level"], '+1'));
-    MythicPlusDropCMTimer.frames.timer.labelFrame.text:SetFontObject("GameFontHighlight");
+    MythicPlusDropCMTimer.frames.chesttimer.labelFrame.text:SetText(format(MythicPlusDrop.L["Keystone_Level"], '+1'));
+    MythicPlusDropCMTimer.frames.chesttimer.labelFrame.text:SetFontObject("GameFontHighlight");
   else
-    MythicPlusDropCMTimer.frames.timer.labelFrame.text:SetText(format(MythicPlusDrop.L["Keystone_Level"], '|cffff0000-1'));
-    MythicPlusDropCMTimer.frames.timer.labelFrame.text:SetFontObject("GameFontHighlight");
-    if cmLevel < 20 then
-      MythicPlusDropCMTimer.frames.chestloot.labelFrame.text:SetText("2x|cFF00FF00" .. lootLevel .. "+");
-    else
-      MythicPlusDropCMTimer.frames.chestloot.labelFrame.text:SetText("4x|cFF00FF00" .. lootLevel .. "+");
-    end
+    MythicPlusDropCMTimer.frames.chesttimer.labelFrame.text:SetText(format(MythicPlusDrop.L["Keystone_Level"], '|cffff0000-1'));
+    MythicPlusDropCMTimer.frames.chesttimer.labelFrame.text:SetFontObject("GameFontHighlight");
+    MythicPlusDropCMTimer.frames.chestloot.labelFrame.text:SetText("1x|cFF00FF00" .. lootLevel);
   end
 
 end
