@@ -5,3 +5,5 @@ for example for a + 3, + 2, + 1 revaluation of the Keystone.
 Likewise you will be ticked which height has the item level at the end of the dungeon.
 
 Also, you can see the Affixes descriptions and Minimum Loot level on the Keystone tooltip.
+
+Download Count https://hanadigital.github.io/grev/?user=BloodDragon2580&repo=MythicPlusDrop
