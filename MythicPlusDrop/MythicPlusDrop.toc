@@ -1,6 +1,6 @@
-## Interface: 90100
+## Interface: 90105
 ## Title: |cffd6266cMythicPlusDrop|r
-## Version: 4.5
+## Version: 4.6
 ## Author: BloodDragon2580
 ## Notes: Info for Mythic Dungeons
 
