@@ -62,6 +62,6 @@ MythicPlusDropTooltip = {}
 function MythicPlusDropTooltip:Init()
 	hooksecurefunc(ItemRefTooltip, 'SetHyperlink', DecorateTooltip)
 	ItemRefTooltip:HookScript('OnTooltipSetItem', DecorateTooltip)
-	GameTooltip:HookScript('OnTooltipSetItem', DecorateTooltip)
+	TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, DecorateTooltip)
 end
 
