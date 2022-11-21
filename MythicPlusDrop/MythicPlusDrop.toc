@@ -1,6 +1,6 @@
 ## Interface: 100002
 ## Title: |cffd6266cMythicPlusDrop|r
-## Version: 5.5
+## Version: 5.6
 ## Author: BloodDragon2580
 ## Notes: Info for Mythic Dungeons
 
