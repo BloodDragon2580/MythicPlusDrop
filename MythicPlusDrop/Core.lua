@@ -1,47 +1,47 @@
 MythicPlusDrop = LibStub("AceAddon-3.0"):NewAddon("MythicPlusDrop", "AceEvent-3.0", "AceTimer-3.0");
 MYTHIC_CHEST_TIMERS_LOOT_ILVL = {
 0,			-- +0
-376,		-- +2
-376,		-- +3
-379,		-- +4
-379,		-- +5
-382,		-- +6
-385,		-- +7
-385,		-- +8
-389,		-- +9
-392,		-- +10
-392,		-- +11
-392,		-- +12
-392,		-- +13
-395,		-- +14
-398,		-- +15
-398,		-- +16
-402,		-- +17
-402,		-- +18
-405,		-- +19
-405};		-- +20
+402,		-- +2
+405,		-- +3
+405,		-- +4
+408,		-- +5
+408,		-- +6
+411,		-- +7
+411,		-- +8
+415,		-- +9
+415,		-- +10
+418,		-- +11
+418,		-- +12
+421,		-- +13
+421,		-- +14
+424,		-- +15
+424,		-- +16
+428,		-- +17
+428,		-- +18
+431,		-- +19
+431};		-- +20
 
 MYTHIC_CHEST_TIMERS_WEEKLY_ILVL = {
 0,			-- +0
-382,		-- +2
-385,		-- +3
-385,		-- +4
-389,		-- +5
-389,		-- +6
-392,		-- +7
-395,		-- +8
-395,		-- +9
-398,		-- +10
-402,		-- +11
-405,		-- +12
-408,		-- +13
-408,		-- +14
-411,		-- +15
-415,		-- +16
-415,		-- +17
-418,		-- +18
-418,		-- +19
-421};		-- +20
+415,		-- +2
+418,		-- +3
+421,		-- +4
+421,		-- +5
+424,		-- +6
+424,		-- +7
+428,		-- +8
+428,		-- +9
+431,		-- +10
+431,		-- +11
+434,		-- +12
+434,		-- +13
+437,		-- +14
+437,		-- +15
+441,		-- +16
+441,		-- +17
+444,		-- +18
+444,		-- +19
+447};		-- +20
 
 AFFIXES_DIFICULTY = {
   '|cFFFF5555',
@@ -69,38 +69,42 @@ AFFIXES_DIFICULTY = {
   '|cFFFFB86C',
   '|cFF50FA7B'
 }
--- 1: Überschüssig
--- 2: Launisch
--- 3: Vulkanisch
--- 4: Nekrotisch
--- 5: Wimmelnd
--- 6: Wütend
--- 7: Anstachelnd
--- 8: Blutig
--- 9: Tyrannisch
--- 10: Verstärkt
--- 11: Platzend
--- 12: Schrecklich
--- 13: Explosiv
--- 14: Bebend
--- 16: Befallen
--- 117: Schröpfend
--- 119: Betörend
--- 120: Erweckt
--- 121: Stolz
--- 122: Inspirierend
--- 123: Boshaft
--- 124: Stürmisch
--- 128: Gequält
--- 129: Höllisch
--- 130: Verschlüsselt
--- 131: Verhüllt
--- 132: Donnernd
+-- 1: Überschüssig		/		Overflowing
+-- 2: Launisch			/		Skittish
+-- 3: Vulkanisch 		/ 		Volcanic
+-- 4: Nekrotisch		/		Necrotic
+-- 5: Wimmelnd			/		Teeming
+-- 6: Wütend 			/ 		Raging
+-- 7: Anstachelnd		/		Bolstering
+-- 8: Blutig			/		Sanguine
+-- 9: Tyrannisch 		/ 		Tyrannical
+-- 10: Verstärkt		/		Fortified
+-- 11: Platzend			/		Bursting
+-- 12: Schrecklich		/		Grievous
+-- 13: Explosiv			/		Explosive
+-- 14: Bebend			/		Quaking
+-- 16: Befallen			/		Infested
+-- 117: Schröpfend		/		Reaping
+-- 119: Betörend		/		Beguiling
+-- 120: Erweckt			/		Awakened
+-- 121: Stolz			/		Prideful
+-- 122: Inspirierend	/		Inspiring
+-- 123: Boshaft			/		Spiteful
+-- 124: Stürmisch		/		Storming
+-- 128: Gequält			/		Tormented
+-- 129: Höllisch		/		Infernal
+-- 130: Verschlüsselt	/		Encrypted
+-- 131: Verhüllt		/		Shrouded
+-- 132: Donnernd		/		Thundering
+-- 134: Umschlingend	/		Entangling
+-- 135: Befallen		/		Afflicted
+-- 136: Unkörperlich	/		Incorporeal
+-- 137: Abschirmend		/		Shielding
 AFFIXES_SCHEDULE = {
 	{10,6,14},
 	{9,11,12},
 	{10,8,3},
-	{9,11,124},
+	{9,6,124},
 	{10,123,12},
 	{9,8,13},
 	{10,7,124},

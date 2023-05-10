@@ -1,6 +1,6 @@
 ## Interface: 100100
 ## Title: |cffd6266cMythicPlusDrop|r
-## Version: 6.1
+## Version: 6.2
 ## Author: BloodDragon2580
 ## Notes: Info for Mythic Dungeons
 ## IconTexture: Interface\Icons\inv_relics_hourglass
