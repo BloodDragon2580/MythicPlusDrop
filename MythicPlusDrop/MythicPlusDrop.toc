@@ -1,9 +1,9 @@
 ## Interface: 100100
 ## Title: |cffd6266cMythicPlusDrop|r
-## Version: 6.2
+## Version: 6.3
 ## Author: BloodDragon2580
 ## Notes: Info for Mythic Dungeons
-## IconTexture: Interface\Icons\inv_relics_hourglass
+## IconTexture: Interface\AddOns\MythicPlusDrop\Media\Texture\logo
 
 embeds.xml
 
