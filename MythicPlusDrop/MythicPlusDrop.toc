@@ -1,6 +1,6 @@
-## Interface: 100100
+## Interface: 100105
 ## Title: |cffd6266cMythicPlusDrop|r
-## Version: 6.3
+## Version: 6.4
 ## Author: BloodDragon2580
 ## Notes: Info for Mythic Dungeons
 ## IconTexture: Interface\AddOns\MythicPlusDrop\Media\Texture\logo
