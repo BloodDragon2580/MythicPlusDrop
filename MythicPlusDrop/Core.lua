@@ -101,7 +101,7 @@ AFFIXES_DIFICULTY = {
 -- 136: Unkörperlich	/		Incorporeal
 -- 137: Abschirmend		/		Shielding
 AFFIXES_SCHEDULE = {
-	{9,6,124},
+	{10,6,124},
 	{10,134,7},
 	{9,136,123},
 	{10,135,6},
