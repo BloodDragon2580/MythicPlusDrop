@@ -1,6 +1,6 @@
 ## Interface: 100200
 ## Title: |cffd6266cMythicPlusDrop|r
-## Version: 7.1
+## Version: 7.2
 ## Author: BloodDragon2580
 ## Notes: Info for Mythic Dungeons
 ## IconTexture: Interface\AddOns\MythicPlusDrop\Media\Texture\logo
@@ -12,4 +12,3 @@ Locales\Locales.xml
 Core.lua
 timer.lua
 Tooltip.lua
-remember.lua
