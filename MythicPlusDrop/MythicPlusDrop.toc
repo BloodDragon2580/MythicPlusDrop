@@ -1,14 +1,22 @@
 ## Interface: 100207
 ## Title: |cffd6266cMythicPlusDrop|r
 ## Version: 7.5
-## Author: BloodDragon2580
 ## Notes: Info for Mythic Dungeons
+## Author: BloodDragon2580
+## SavedVariables: MythicPlusDrop_Config, MythicPlusDrop_Data
+## SavedVariablesPerCharacter: MythicPlusDrop_CharacterConfig
 ## IconTexture: Interface\AddOns\MythicPlusDrop\Media\Texture\logo
+
 
 embeds.xml
 
-Locales\Locales.xml
-
 Core.lua
-timer.lua
-Tooltip.lua
+Locale.lua
+Config.lua
+
+ObjectiveTracker.lua
+ProgressTracker.lua
+Keystone.lua
+Gossip.lua
+Splits.lua
+Schedule.lua
