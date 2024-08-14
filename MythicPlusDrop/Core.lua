@@ -58,7 +58,7 @@ end
 
 function Addon:RegisterAddOnLoaded(name, callback, func)
 	if func == nil then func = 0 end
-	if IsAddOnLoaded(name) then
+	if C_AddOns.IsAddOnLoaded(name) then
 		if func == 0 then
 			callback[name](callback)
 		else
