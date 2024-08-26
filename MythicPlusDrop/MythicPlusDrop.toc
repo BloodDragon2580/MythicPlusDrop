@@ -1,6 +1,6 @@
 ## Interface: 110002
 ## Title: |cffd6266cMythicPlusDrop|r
-## Version: 8.6
+## Version: 8.7
 ## Notes: Info for Mythic Dungeons
 ## Author: BloodDragon2580
 ## SavedVariables: MythicPlusDrop_Config, MythicPlusDrop_Data
