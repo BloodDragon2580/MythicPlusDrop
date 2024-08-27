@@ -1,6 +1,6 @@
 ## Interface: 110002
 ## Title: |cffd6266cMythicPlusDrop|r
-## Version: 8.8
+## Version: 8.9
 ## Notes: Info for Mythic Dungeons
 ## Author: BloodDragon2580
 ## SavedVariables: MythicPlusDrop_Config, MythicPlusDrop_Data
@@ -14,9 +14,9 @@ Core.lua
 Locale.lua
 Config.lua
 
-ObjectiveTracker.lua
-ProgressTracker.lua
-Keystone.lua
-Gossip.lua
-Splits.lua
-Schedule.lua
+module\ObjectiveTracker.lua
+module\ProgressTracker.lua
+module\Keystone.lua
+module\Gossip.lua
+module\Splits.lua
+module\Schedule.lua
