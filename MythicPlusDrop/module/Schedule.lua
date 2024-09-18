@@ -38,6 +38,9 @@ Affix names corresponding to ID
 147 XALATATHS_GUILE
 148 XALATATHS_BARGAIN_ASCENDANT
 152 CHALLENGERS_PERIL
+158 Xal'atath's Bargain: Voidbound
+159 Xal'atath's Bargain: Oblivion
+160 Xal'atath's Bargain: Devour
 ]]
 
 local affixSchedule = {
