@@ -1,21 +1,56 @@
 local ADDON, Addon = ...
 local Mod = Addon:NewModule('Schedule')
 
-local rowCount = 3
+local rowCount = 5
 
 local requestPartyKeystones
 
+--[[
+Affix names corresponding to ID
+1 OVERFLOWING
+2 SKITTISH
+3 VOLCANIC
+4 NECROTIC
+5 TEEMING
+6 RAGING
+7 BOLSTERING
+8 SANGUINE
+9 TYRANNICAL
+10 FORTIFIED
+11 BURSTING
+12 GRiEVOUS WOUNDS
+13 EXPLOSIVE
+14 QUAKING
+15 RELENTLESS
+16 Infested
+...
+121 Prideful
+122 Inspiring
+123 Spiteful
+124 Storming
+125 Tormented
+...
+130 Encrypted
+...
+134 Entangling
+135 Afflicted
+136 Incorporeal
+147 XALATATHS_GUILE
+148 XALATATHS_BARGAIN_ASCENDANT
+152 CHALLENGERS_PERIL
+]]
+
 local affixSchedule = {
-	[1]  = { [1]=8,   [2]=136, [3]=10, },   -- Sanguine   | Incorporeal | Fortified
-	[2]  = { [1]=11,  [2]=134, [3]=9,  },   -- Bursting   | Entangling  | Tyrannical
-	[3]  = { [1]=123, [2]=3,   [3]=10, },   -- Spiteful   | Volcanic    | Fortified
-	[4]  = { [1]=6,   [2]=124, [3]=9,  },   -- Raging     | Storming    | Tyrannical
-	[5]  = { [1]=7,   [2]=134, [3]=10, },   -- Bolstering | Entangling  | Fortified
-	[6]  = { [1]=123, [2]=136, [3]=9,  },   -- Spiteful   | Incorporeal | Tyrannical
-	[7]  = { [1]=6,   [2]=135, [3]=10, },   -- Raging     | Afflicted   | Fortified
-	[8]  = { [1]=8,   [2]=3,   [3]=9,  },   -- Sanguine   | Volcanic    | Tyrannical
-	[9]  = { [1]=11,  [2]=124, [3]=10, },   -- Bursting   |Storming     | Fortified
-	[10] = { [1]=7,   [2]=135, [3]=9,  },   -- Bolstering |Afflicted    | Tyrannical
+	[1]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
+	[2]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
+	[3]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
+	[4]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
+	[5]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
+	[6]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
+	[7]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
+	[8]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
+	[9]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
+	[10] = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
 }
 
 local scheduleEnabled = true
