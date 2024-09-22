@@ -128,7 +128,7 @@ local function UpdatePartyKeystones()
 		Mod.AffixFrame:SetPoint("TOPLEFT", ChallengesFrame.WeeklyInfo.Child.WeeklyChest, "TOPRIGHT", 130, 55)
 		Mod.PartyFrame:Show()
 	end
-	while e <= 4 do
+	while e <= 5 do
 		Mod.PartyFrame.Entries[e]:Hide()
 		e = e + 1
 	end
@@ -165,18 +165,22 @@ local function UpdateFrame()
 
 			local scheduleWeek = (currentWeek - 1 + i) % (#affixSchedule) + 1
 			local affixes = affixSchedule[scheduleWeek]
-			for j = 1, #affixes do
+        
+			-- Adjusted block to handle up to 5 affixes and avoid errors
+			for j = 1, 5 do  -- Loop through up to 5 affixes
 				local affix = entry.Affixes[j]
-				affix:SetUp(affixes[j])
-			end
-		end
-		Mod.AffixFrame.Label:Hide()
-	else
-		for i = 1, rowCount do
-			Mod.AffixFrame.Entries[i]:Hide()
-		end
-		Mod.AffixFrame.Label:Show()
-	end
+				if affix and affixes[j] then  -- Check if affix and affixes[j] are not nil
+					affix:SetUp(affixes[j])
+				end
+			end  -- End of the inner for loop (j = 1, 5)
+		end  -- End of the outer for loop (i = 1, rowCount)
+    Mod.AffixFrame.Label:Hide()
+else
+    for i = 1, rowCount do
+        Mod.AffixFrame.Entries[i]:Hide()
+    end
+    Mod.AffixFrame.Label:Show()
+end
 	UpdatePartyKeystones()
 
 	if not hookedIconTooltips then
@@ -251,7 +255,7 @@ function Mod:Blizzard_ChallengesUI()
 
 		local affixes = {}
 		local prevAffix
-		for j = 3, 1, -1 do
+		for j = 4, 1, -1 do
 			local affix = makeAffix(entry)
 			if prevAffix then
 				affix:SetPoint("RIGHT", prevAffix, "LEFT", -4, 0)
@@ -366,7 +370,7 @@ function Mod:CheckAffixes()
 		for index, affixes in ipairs(affixSchedule) do
 			local matches = 0
 			for _, affix in ipairs(currentAffixes) do
-				if affix.id == affixes[1] or affix.id == affixes[2] or affix.id == affixes[3] then
+				if affix.id == affixes[1] or affix.id == affixes[2] or affix.id == affixes[3] or affix.id == affixes[4] then
 					matches = matches + 1
 				end
 			end
