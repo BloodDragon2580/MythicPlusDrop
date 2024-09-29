@@ -92,21 +92,21 @@ local function UpdatePartyKeystones()
 		local entry = Mod.PartyFrame.Entries[e]
 		local name, realm = UnitName("party"..i)
 
-		if name then
-			local fullName
-			if not realm or realm == "" then
-				fullName = name.."-"..playerRealm
-			else
-				fullName = name.."-"..realm
-			end
+		-- Sicherstellen, dass 'name' nicht nil ist
+		if name and entry then
+			-- Falls der realm nil ist, setze den playerRealm als Standard
+			local fullName = name.."-"..(realm and realm ~= "" and realm or playerRealm)
 
+			-- Prüfen, ob ein Keystone für den Spieler existiert
 			if unitKeystones[fullName] ~= nil then
 				local keystoneName
+				-- Prüfen, ob der Keystone-Wert 0 ist
 				if unitKeystones[fullName] == 0 then
 					keystoneName = NONE
 				else
 					keystoneName = GetNameForKeystone(unitKeystones[fullName][1], unitKeystones[fullName][2])
 				end
+				-- Wenn ein gültiger Keystone-Name gefunden wurde, zeigen wir den Eintrag an
 				if keystoneName then
 					entry:Show()
 					local _, class = UnitClass("party"..i)
@@ -119,6 +119,8 @@ local function UpdatePartyKeystones()
 			end
 		end
 	end
+
+	-- Position und Sichtbarkeit des AffixFrames anpassen
 	if e == 1 then
 		Mod.AffixFrame:ClearAllPoints()
 		Mod.AffixFrame:SetPoint("LEFT", ChallengesFrame.WeeklyInfo.Child.WeeklyChest, "RIGHT", 130, 0)
@@ -128,8 +130,12 @@ local function UpdatePartyKeystones()
 		Mod.AffixFrame:SetPoint("TOPLEFT", ChallengesFrame.WeeklyInfo.Child.WeeklyChest, "TOPRIGHT", 130, 55)
 		Mod.PartyFrame:Show()
 	end
+
+	-- Verstecken der nicht verwendeten Party-Einträge
 	while e <= 5 do
-		Mod.PartyFrame.Entries[e]:Hide()
+		if Mod.PartyFrame.Entries[e] then
+			Mod.PartyFrame.Entries[e]:Hide()
+		end
 		e = e + 1
 	end
 end
