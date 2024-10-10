@@ -4,6 +4,7 @@ local Config = Addon:NewModule('Config')
 local configVersion = 1
 local configDefaults = {
 	progressTooltip = true,
+	progressTooltipMDT = false,
 	progressFormat = 1,
 	autoGossip = true,
 	cosRumors = false,

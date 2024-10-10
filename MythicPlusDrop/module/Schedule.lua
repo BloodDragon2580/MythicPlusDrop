@@ -44,20 +44,16 @@ Affix names corresponding to ID
 ]]
 
 local affixSchedule = {
-	[1]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
-	[2]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
-	[3]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
-	[4]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
-	[5]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
-	[6]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
-	[7]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
-	[8]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
-	[9]  = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
-	[10] = { [1]=148,   [2]=9, [3]=152, [4]=10, [5]=147, },
+	-- TWW Season 1 (Sort:[1](Level 2+);[2](Level 4+);[3](Level 7+);[4](Level 10+);[5](Level 12+))
+	-- Information from(资料来自)：https://www.wowhead.com/guide/mythic-plus-dungeons/the-war-within-season-1/overview
+	[1]  = { [1]=148, [2] =9 , [3]=152, [4]=10, [5]=147, }, -- Xal’atath’s Bargain: Ascendant | Tyrannical | Challenger’s Peril | Fortified  | Xal’atath’s Guile
+	[2]  = { [1]=159, [2] =10, [3]=152, [4]=9 , [5]=147, }, -- Xal’atath’s Bargain: Oblivion  | Fortified  | Challenger’s Peril | Tyrannical | Xal’atath’s Guile
+	[3]  = { [1]=158, [2] =9 , [3]=152, [4]=10, [5]=147, }, -- Xal’atath’s Bargain: Voidbound | Tyrannical | Challenger’s Peril | Fortified  | Xal’atath’s Guile
+	[4]  = { [1]=160, [2] =10, [3]=152, [4]=9 , [5]=147, }, -- Xal’atath’s Bargain: Devour    | Fortified  | Challenger’s Peril | Tyrannical | Xal’atath’s Guile
 }
 
 local scheduleEnabled = true
-local affixScheduleUnknown = false
+local affixScheduleUnknown = true
 local currentWeek
 local currentKeystoneMapID
 local currentKeystoneLevel
@@ -70,8 +66,8 @@ local function GetNameForKeystone(keystoneMapID, keystoneLevel)
 		if Addon.Locale:Local("dungeon_"..keystoneMapName) then
 			keystoneMapName = Addon.Locale:Get("dungeon_"..keystoneMapName)
 		end
-		keystoneMapName = gsub(keystoneMapName, ".-%-", "") -- Mechagon
-		keystoneMapName = gsub(keystoneMapName, ".-"..HEADER_COLON, "") -- Tazavesh
+		keystoneMapName = gsub(keystoneMapName, ".-%-", "")
+		keystoneMapName = gsub(keystoneMapName, ".-"..HEADER_COLON, "")
 		return string.format("(%d) %s", keystoneLevel, keystoneMapName)
 	end
 end
@@ -92,21 +88,21 @@ local function UpdatePartyKeystones()
 		local entry = Mod.PartyFrame.Entries[e]
 		local name, realm = UnitName("party"..i)
 
-		-- Sicherstellen, dass 'name' nicht nil ist
-		if name and entry then
-			-- Falls der realm nil ist, setze den playerRealm als Standard
-			local fullName = name.."-"..(realm and realm ~= "" and realm or playerRealm)
+		if name then
+			local fullName
+			if not realm or realm == "" then
+				fullName = name.."-"..playerRealm
+			else
+				fullName = name.."-"..realm
+			end
 
-			-- Prüfen, ob ein Keystone für den Spieler existiert
 			if unitKeystones[fullName] ~= nil then
 				local keystoneName
-				-- Prüfen, ob der Keystone-Wert 0 ist
 				if unitKeystones[fullName] == 0 then
 					keystoneName = NONE
 				else
 					keystoneName = GetNameForKeystone(unitKeystones[fullName][1], unitKeystones[fullName][2])
 				end
-				-- Wenn ein gültiger Keystone-Name gefunden wurde, zeigen wir den Eintrag an
 				if keystoneName then
 					entry:Show()
 					local _, class = UnitClass("party"..i)
@@ -119,8 +115,6 @@ local function UpdatePartyKeystones()
 			end
 		end
 	end
-
-	-- Position und Sichtbarkeit des AffixFrames anpassen
 	if e == 1 then
 		Mod.AffixFrame:ClearAllPoints()
 		Mod.AffixFrame:SetPoint("LEFT", ChallengesFrame.WeeklyInfo.Child.WeeklyChest, "RIGHT", 130, 0)
@@ -130,12 +124,8 @@ local function UpdatePartyKeystones()
 		Mod.AffixFrame:SetPoint("TOPLEFT", ChallengesFrame.WeeklyInfo.Child.WeeklyChest, "TOPRIGHT", 130, 55)
 		Mod.PartyFrame:Show()
 	end
-
-	-- Verstecken der nicht verwendeten Party-Einträge
-	while e <= 5 do
-		if Mod.PartyFrame.Entries[e] then
-			Mod.PartyFrame.Entries[e]:Hide()
-		end
+	while e <= 4 do
+		Mod.PartyFrame.Entries[e]:Hide()
 		e = e + 1
 	end
 end
@@ -171,22 +161,18 @@ local function UpdateFrame()
 
 			local scheduleWeek = (currentWeek - 1 + i) % (#affixSchedule) + 1
 			local affixes = affixSchedule[scheduleWeek]
-        
-			-- Adjusted block to handle up to 5 affixes and avoid errors
-			for j = 1, 5 do  -- Loop through up to 5 affixes
+			for j = 1, #affixes do
 				local affix = entry.Affixes[j]
-				if affix and affixes[j] then  -- Check if affix and affixes[j] are not nil
-					affix:SetUp(affixes[j])
-				end
-			end  -- End of the inner for loop (j = 1, 5)
-		end  -- End of the outer for loop (i = 1, rowCount)
-    Mod.AffixFrame.Label:Hide()
-else
-    for i = 1, rowCount do
-        Mod.AffixFrame.Entries[i]:Hide()
-    end
-    Mod.AffixFrame.Label:Show()
-end
+				affix:SetUp(affixes[j])
+			end
+		end
+		Mod.AffixFrame.Label:Hide()
+	else
+		for i = 1, rowCount do
+			Mod.AffixFrame.Entries[i]:Hide()
+		end
+		Mod.AffixFrame.Label:Show()
+	end
 	UpdatePartyKeystones()
 
 	if not hookedIconTooltips then
@@ -261,7 +247,7 @@ function Mod:Blizzard_ChallengesUI()
 
 		local affixes = {}
 		local prevAffix
-		for j = 4, 1, -1 do
+		for j = 5, 1, -1 do
 			local affix = makeAffix(entry)
 			if prevAffix then
 				affix:SetPoint("RIGHT", prevAffix, "LEFT", -4, 0)
@@ -292,8 +278,6 @@ function Mod:Blizzard_ChallengesUI()
 	label:SetWordWrap(true)
 	if affixScheduleUnknown then
 		label:SetText(Addon.Locale.scheduleUnknown)
-	else
-		label:SetText(Addon.Locale.scheduleMissingKeystone)
 	end
 	frame.Label = label
 
@@ -376,12 +360,13 @@ function Mod:CheckAffixes()
 		for index, affixes in ipairs(affixSchedule) do
 			local matches = 0
 			for _, affix in ipairs(currentAffixes) do
-				if affix.id == affixes[1] or affix.id == affixes[2] or affix.id == affixes[3] or affix.id == affixes[4] then
+				if affix.id == affixes[1] or affix.id == affixes[2] or affix.id == affixes[3] or affix.id == affixes[4] or affix.id == affixes[5] then
 					matches = matches + 1
 				end
 			end
-			if matches >= 3 then
+			if matches == 5 then
 				currentWeek = index
+				affixScheduleUnknown = false
 			end
 		end
 	end
