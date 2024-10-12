@@ -1,7 +1,7 @@
 local ADDON, Addon = ...
 local Mod = Addon:NewModule('Schedule')
 
-local rowCount = 5
+local rowCount = 3
 
 local requestPartyKeystones
 
@@ -44,8 +44,6 @@ Affix names corresponding to ID
 ]]
 
 local affixSchedule = {
-	-- TWW Season 1 (Sort:[1](Level 2+);[2](Level 4+);[3](Level 7+);[4](Level 10+);[5](Level 12+))
-	-- Information from(资料来自)：https://www.wowhead.com/guide/mythic-plus-dungeons/the-war-within-season-1/overview
 	[1]  = { [1]=148, [2] =9 , [3]=152, [4]=10, [5]=147, }, -- Xal’atath’s Bargain: Ascendant | Tyrannical | Challenger’s Peril | Fortified  | Xal’atath’s Guile
 	[2]  = { [1]=159, [2] =10, [3]=152, [4]=9 , [5]=147, }, -- Xal’atath’s Bargain: Oblivion  | Fortified  | Challenger’s Peril | Tyrannical | Xal’atath’s Guile
 	[3]  = { [1]=158, [2] =9 , [3]=152, [4]=10, [5]=147, }, -- Xal’atath’s Bargain: Voidbound | Tyrannical | Challenger’s Peril | Fortified  | Xal’atath’s Guile
