@@ -44,10 +44,11 @@ Affix names corresponding to ID
 ]]
 
 local affixSchedule = {
-	[1]  = { [1]=148, [2] =9 , [3]=152, [4]=10, [5]=147, }, -- Xal’atath’s Bargain: Ascendant | Tyrannical | Challenger’s Peril | Fortified  | Xal’atath’s Guile
-	[2]  = { [1]=159, [2] =10, [3]=152, [4]=9 , [5]=147, }, -- Xal’atath’s Bargain: Oblivion  | Fortified  | Challenger’s Peril | Tyrannical | Xal’atath’s Guile
-	[3]  = { [1]=158, [2] =9 , [3]=152, [4]=10, [5]=147, }, -- Xal’atath’s Bargain: Voidbound | Tyrannical | Challenger’s Peril | Fortified  | Xal’atath’s Guile
-	[4]  = { [1]=160, [2] =10, [3]=152, [4]=9 , [5]=147, }, -- Xal’atath’s Bargain: Devour    | Fortified  | Challenger’s Peril | Tyrannical | Xal’atath’s Guile
+	[1]  = { [1]=148, [2]=9 , [3]=152, [4]=10, [5]=147, }, -- Xal’atath’s Bargain: Ascendant | Tyrannical | Challenger’s Peril | Fortified  | Xal’atath’s Guile
+	[2]  = { [1]=159, [2]=10, [3]=152, [4]=9 , [5]=147, }, -- Xal’atath’s Bargain: Oblivion  | Fortified  | Challenger’s Peril | Tyrannical | Xal’atath’s Guile
+	[3]  = { [1]=158, [2]=9 , [3]=152, [4]=10, [5]=147, }, -- Xal’atath’s Bargain: Voidbound | Tyrannical | Challenger’s Peril | Fortified  | Xal’atath’s Guile
+	[4]  = { [1]=160, [2]=10, [3]=152, [4]=9 , [5]=147, }, -- Xal’atath’s Bargain: Devour    | Fortified  | Challenger’s Peril | Tyrannical | Xal’atath’s Guile
+	[5]  = { [1]=159, [2]=9 , [3]=152, [4]=10, [5]=147, }, -- Xal’atath’s Bargain: Oblivion  | Tyrannical | Challenger’s Peril | Fortified  | Xal’atath’s Guile
 }
 
 local scheduleEnabled = true
@@ -364,7 +365,7 @@ function Mod:CheckAffixes()
 			end
 			if matches == 5 then
 				currentWeek = index
-				affixScheduleUnknown = false
+				affixScheduleUnknown = true
 			end
 		end
 	end
