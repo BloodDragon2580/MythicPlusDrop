@@ -44,15 +44,14 @@ Affix names corresponding to ID
 ]]
 
 local affixSchedule = {
-	{ [1]=148, [2] =9 , [3]=152, [4]=10, [5]=147, }, -- (1) Xal’atath’s Bargain: Ascendant | Tyrannical | Challenger’s Peril | Fortified  | Xal’atath’s Guile
-	{ [1]=159, [2] =10, [3]=152, [4]=9 , [5]=147, }, -- (2) Xal’atath’s Bargain: Oblivion  | Fortified  | Challenger’s Peril | Tyrannical | Xal’atath’s Guile
-	{ [1]=158, [2] =9 , [3]=152, [4]=10, [5]=147, }, -- (3) Xal’atath’s Bargain: Voidbound | Tyrannical | Challenger’s Peril | Fortified  | Xal’atath’s Guile
-	{ [1]=160, [2] =10, [3]=152, [4]=9 , [5]=147, }, -- (4) Xal’atath’s Bargain: Devour    | Fortified  | Challenger’s Peril | Tyrannical | Xal’atath’s Guile
-	{ [1]=159, [2] =9 , [3]=152, [4]=10, [5]=147, }, -- (5) Xal’atath’s Bargain: Oblivion  | Tyrannical | Challenger’s Peril | Fortified  | Xal’atath’s Guile
-	{ [1]=148, [2] =10, [3]=152, [4]=9 , [5]=147, }, -- (6) Xal’atath’s Bargain: Ascendant | Fortified  | Challenger’s Peril | Tyrannical | Xal’atath’s Guile
-	-- Predicted
-	{ [1]=160, [2] =9 , [3]=152, [4]=10, [5]=147, }, -- (7) Xal’atath’s Bargain: Devour    | Tyrannical | Challenger’s Peril | Fortified  | Xal’atath’s Guile
-	{ [1]=158, [2] =10, [3]=152, [4]=9 , [5]=147, }, -- (8) Xal’atath’s Bargain: Voidbound | Fortified  | Challenger’s Peril | Tyrannical | Xal’atath’s Guile
+	{ [1]=148, [2] =9 , [3]=10, [4]=147, }, -- (1) Xal’atath’s Bargain: Ascendant | Tyrannical | Fortified  | Xal’atath’s Guile
+	{ [1]=159, [2] =10, [3]=9 , [4]=147, }, -- (2) Xal’atath’s Bargain: Oblivion  | Fortified  | Tyrannical | Xal’atath’s Guile
+	{ [1]=158, [2] =9 , [3]=10, [4]=147, }, -- (3) Xal’atath’s Bargain: Voidbound | Tyrannical | Fortified  | Xal’atath’s Guile
+	{ [1]=160, [2] =10, [3]=9 , [4]=147, }, -- (4) Xal’atath’s Bargain: Devour    | Fortified  | Tyrannical | Xal’atath’s Guile
+	{ [1]=159, [2] =9 , [3]=10, [4]=147, }, -- (5) Xal’atath’s Bargain: Oblivion  | Tyrannical | Fortified  | Xal’atath’s Guile
+	{ [1]=148, [2] =10, [3]=9 , [4]=147, }, -- (6) Xal’atath’s Bargain: Ascendant | Fortified  | Tyrannical | Xal’atath’s Guile
+	{ [1]=160, [2] =9 , [3]=10, [4]=147, }, -- (7) Xal’atath’s Bargain: Devour    | Tyrannical | Fortified  | Xal’atath’s Guile
+	{ [1]=158, [2] =10, [3]=9 , [4]=147, }, -- (8) Xal’atath’s Bargain: Voidbound | Fortified  | Tyrannical | Xal’atath’s Guile
 }
 
 local scheduleEnabled = true
@@ -361,7 +360,7 @@ function Mod:CheckAffixes()
 
 	if currentAffixes then
 		for index, affixes in ipairs(affixSchedule) do
-			if affixes[1] == currentAffixes[1].id and affixes[2] == currentAffixes[2].id and affixes[3] == currentAffixes[3].id and affixes[4] == currentAffixes[4].id and affixes[5] == currentAffixes[5].id then
+			if affixes[1] == currentAffixes[1].id and affixes[2] == currentAffixes[2].id and affixes[3] == currentAffixes[3].id and affixes[4] == currentAffixes[4].id then
 				currentWeek = index
 				affixScheduleUnknown = false
 			end
