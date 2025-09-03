@@ -2,6 +2,7 @@
 ## Title: |cffd6266cMythicPlusDrop|r
 ## Version: 15.3
 ## Notes: Info for Mythic Dungeons
+## Notes-ruRU: Информация для подземелий М+
 ## Author: BloodDragon2580
 ## SavedVariables: MythicPlusDrop_Config, MythicPlusDrop_Data
 ## SavedVariablesPerCharacter: MythicPlusDrop_CharacterConfig
