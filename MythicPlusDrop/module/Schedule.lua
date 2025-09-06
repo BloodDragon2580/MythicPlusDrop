@@ -35,12 +35,13 @@ Affix names corresponding to ID
 134 Entangling
 135 Afflicted
 136 Incorporeal
-147 XALATATHS_GUILE
-148 XALATATHS_BARGAIN_ASCENDANT
+147 Xal’atath’s Guile
+148 Xal’atath’s Bargain: Ascendant
 152 CHALLENGERS_PERIL
 158 Xal'atath's Bargain: Voidbound
 159 Xal'atath's Bargain: Oblivion
 160 Xal'atath's Bargain: Devour
+162:Xal’atath’s Bargain: Pulsar
 ]]
 
 local affixSchedule = {
@@ -363,6 +364,7 @@ function Mod:CheckAffixes()
 			if affixes[1] == currentAffixes[1].id and affixes[2] == currentAffixes[2].id and affixes[3] == currentAffixes[3].id and affixes[4] == currentAffixes[4].id then
 				currentWeek = index
 				affixScheduleUnknown = false
+				break
 			end
 		end
 	end

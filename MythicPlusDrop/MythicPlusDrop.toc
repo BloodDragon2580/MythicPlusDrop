@@ -1,6 +1,6 @@
 ## Interface: 110200
 ## Title: |cffd6266cMythicPlusDrop|r
-## Version: 15.4
+## Version: 15.5
 ## Notes: Info for Mythic Dungeons
 ## Notes-ruRU: Информация для подземелий М+
 ## Author: BloodDragon2580
@@ -8,16 +8,15 @@
 ## SavedVariablesPerCharacter: MythicPlusDrop_CharacterConfig
 ## IconTexture: Interface\AddOns\MythicPlusDrop\Media\Texture\logo
 
-
 embeds.xml
 
 Core.lua
 Locale.lua
 Config.lua
 
-module\ObjectiveTracker.lua
-module\ProgressTracker.lua
-module\Keystone.lua
-module\Gossip.lua
-module\Splits.lua
-module\Schedule.lua
+module/ObjectiveTracker.lua
+module/ProgressTracker.lua
+module/Keystone.lua
+module/Gossip.lua
+module/Splits.lua
+module/Schedule.lua
