@@ -73,7 +73,6 @@ function Mod:SCENARIO_CRITERIA_UPDATE()
 end
 
 local function StartTime()
-	Mod:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 	local numCriteria = select(3, C_Scenario.GetStepInfo())
 	for criteriaIndex = 1, numCriteria do
 		local criteriaInfo = C_ScenarioInfo.GetCriteriaInfo(criteriaIndex)
@@ -86,7 +85,6 @@ local function StartTime()
 end
 
 local function StopTime()
-	Mod:UnregisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 end
 
 local function CheckTime(...)
@@ -285,7 +283,6 @@ local function DeathCount_OnEnter(self)
 end
 
 function Mod:Blizzard_ObjectiveTracker()
-	ScenarioObjectiveTracker.ChallengeModeBlock.DeathCount:SetScript("OnEnter", DeathCount_OnEnter)
 end
 
 function Mod:Startup()
