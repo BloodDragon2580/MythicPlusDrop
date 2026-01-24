@@ -1,6 +1,6 @@
 ## Interface: 120000
 ## Title: |cffd6266cMythicPlusDrop|r
-## Version: 17.1
+## Version: 17.2
 ## Notes: Info for Mythic Dungeons
 ## Notes-ruRU: Информация для подземелий М+
 ## Author: BloodDragon2580
