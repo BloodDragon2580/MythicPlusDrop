@@ -13,9 +13,17 @@ local npcWhitelist = {
 local cosRumorNPC = 107486
 
 local function GossipNPCID()
-	local guid = UnitGUID("npc")
-	local npcid = guid and select(6, strsplit("-", guid))
-	return tonumber(npcid)
+  -- Midnight (12.0+) can return "secret"/tainted GUID strings in some situations (often during combat),
+  -- which will throw "attempt to perform string conversion on a secret string value" if we try to
+  -- parse them with strsplit/string ops. Use pcall and just return nil if it happens.
+  local guid = UnitGUID("npc")
+  if not guid then return nil end
+
+  local ok, npcid = pcall(function()
+    return select(6, strsplit("-", guid))
+  end)
+  if not ok then return nil end
+  return tonumber(npcid)
 end
 
 local function IsStaticPopupShown()
