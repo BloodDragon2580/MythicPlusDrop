@@ -383,7 +383,21 @@ end
 
 function Mod:CHAT_MSG_LOOT(...)
 	local lootString, _, _, _, unit = ...
-	if string.match(lootString, "|Hitem:158923:") then
+	local isKeystoneLoot = false
+	local hadSecretStringError = false
+
+	if lootString ~= nil then
+		local ok, result = pcall(function()
+			return string.find(lootString, "|Hitem:158923:", 1, true) ~= nil
+		end)
+		if ok then
+			isKeystoneLoot = result
+		else
+			hadSecretStringError = true
+		end
+	end
+
+	if isKeystoneLoot or hadSecretStringError then
 		if UnitName("player") == unit then
 			self:CheckCurrentKeystone()
 		else
