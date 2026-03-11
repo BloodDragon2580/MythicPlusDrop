@@ -385,6 +385,7 @@ function Mod:CHAT_MSG_LOOT(...)
 	local lootString, _, _, _, unit = ...
 	local isKeystoneLoot = false
 	local hadSecretStringError = false
+	local isPlayerLoot = false
 
 	if lootString ~= nil then
 		local ok, result = pcall(function()
@@ -397,10 +398,23 @@ function Mod:CHAT_MSG_LOOT(...)
 		end
 	end
 
-	if isKeystoneLoot or hadSecretStringError then
-		if UnitName("player") == unit then
-			self:CheckCurrentKeystone()
+	if unit ~= nil then
+		local ok, result = pcall(function()
+			return unit == UnitName("player")
+		end)
+		if ok then
+			isPlayerLoot = result
 		else
+			hadSecretStringError = true
+		end
+	end
+
+	if isKeystoneLoot or hadSecretStringError then
+		if isPlayerLoot or hadSecretStringError then
+			self:CheckCurrentKeystone()
+		end
+
+		if not isPlayerLoot then
 			self:SetPartyKeystoneRequest()
 		end
 	end
