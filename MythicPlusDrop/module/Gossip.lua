@@ -2,28 +2,20 @@ local ADDON, Addon = ...
 local Mod = Addon:NewModule('Gossip')
 
 local npcBlacklist = {
-	[107435] = true, [112697] = true, [112699] = true, -- Suspicous Noble
-	[101462] = true, -- Reaves
-	[166663] = true, -- Kyrian Steward
+	[107435] = true, [112697] = true, [112699] = true,
+	[101462] = true,
+	[166663] = true,
 }
 local npcWhitelist = {
-	[197300] = true, -- Azure Vault, Book of Translocation
+	[197300] = true,
 }
 
 local cosRumorNPC = 107486
 
 local function GossipNPCID()
-  -- Midnight (12.0+) can return "secret"/tainted GUID strings in some situations (often during combat),
-  -- which will throw "attempt to perform string conversion on a secret string value" if we try to
-  -- parse them with strsplit/string ops. Use pcall and just return nil if it happens.
-  local guid = UnitGUID("npc")
-  if not guid then return nil end
-
-  local ok, npcid = pcall(function()
-    return select(6, strsplit("-", guid))
-  end)
-  if not ok then return nil end
-  return tonumber(npcid)
+	local guid = UnitGUID("npc")
+	local npcid = guid and select(6, strsplit("-", guid))
+	return tonumber(npcid)
 end
 
 local function IsStaticPopupShown()
@@ -66,19 +58,16 @@ function Mod:CoSRumor()
 end
 
 function Mod:GOSSIP_SHOW()
-	local npcId = GossipNPCID()
+	if not IsInActiveChallengeMode() then return end
+
 	local options = C_GossipInfo.GetOptions()
 	local numOptions = #options
+	if numOptions ~= 1 then return end
 
-	if Addon.Config.cosRumors and Addon.Locale:HasRumors() and npcId == cosRumorNPC and numOptions == 0 then
-		self:CoSRumor()
-		C_GossipInfo.CloseGossip()
-	end
+	local npcId = GossipNPCID()
 
-	if numOptions ~= 1 then return end -- only automate one gossip option
-
-	if Addon.Config.autoGossip and IsInActiveChallengeMode() and not npcBlacklist[npcId] then
-		if npcWhitelist[npcId] or options[1].icon == 132053 or options[1].icon == 1019848 then -- the gossip icon, prevents auto-opening repair options etc
+	if Addon.Config.autoGossip and not npcBlacklist[npcId] then
+		if npcWhitelist[npcId] or options[1].icon == 132053 or options[1].icon == 1019848 then
 			local popupWasShown = IsStaticPopupShown()
 			C_GossipInfo.SelectOption(options[1].gossipOptionID)
 			local popupIsShown = IsStaticPopupShown()
