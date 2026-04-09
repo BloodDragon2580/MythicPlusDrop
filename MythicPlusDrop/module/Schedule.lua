@@ -35,24 +35,24 @@ Affix names corresponding to ID
 134 Entangling
 135 Afflicted
 136 Incorporeal
-147 Xal’atath’s Guile
-148 Xal’atath’s Bargain: Ascendant
+147 Xal'atath's Guile
+148 Xal'atath's Bargain: Ascendant
 152 CHALLENGERS_PERIL
 158 Xal'atath's Bargain: Voidbound
 159 Xal'atath's Bargain: Oblivion
 160 Xal'atath's Bargain: Devour
-162:Xal’atath’s Bargain: Pulsar
+162:Xal'atath's Bargain: Pulsar
 ]]
 
 local affixSchedule = {
-	{ [1] = 162, [2] = 10, [3] = 9 , [4] = 147, }, -- (1) Xal’atath’s Bargain: Pulsar | Fortified | Tyrannical  | Xal’atath’s Guile
-	--{ [1] = , [2] = 9 , [3] = 10, [4] = 147, }, -- (2) Xal’atath’s Bargain:   | Tyrannical | Fortified  | Xal’atath’s Guile
-	--{ [1] = , [2] = 10, [3] = 9 , [4] = 147, }, -- (3) Xal’atath’s Bargain:   | Fortified  | Tyrannical | Xal’atath’s Guile
-	--{ [1] = , [2] = 9 , [3] = 10, [4] = 147, }, -- (4) Xal’atath’s Bargain:   | Tyrannical | Fortified  | Xal’atath’s Guile
-	--{ [1] = , [2] = 10, [3] = 9 , [4] = 147, }, -- (5) Xal’atath’s Bargain:   | Fortified  | Tyrannical | Xal’atath’s Guile
-	--{ [1] = , [2] = 9 , [3] = 10, [4] = 147, }, -- (6) Xal’atath’s Bargain:   | Tyrannical | Fortified  | Xal’atath’s Guile
-	--{ [1] = , [2] = 10, [3] = 9 , [4] = 147, }, -- (7) Xal’atath’s Bargain:   | Fortified  | Tyrannical | Xal’atath’s Guile
-	--{ [1] = , [2] = 9 , [3] = 10, [4] = 147, }, -- (8) Xal’atath’s Bargain:   | Tyrannical | Fortified  | Xal’atath’s Guile
+	{ [1] = 162, [2] = 10, [3] = 9 , [4] = 147, }, -- (1) Xal'atath's Bargain: Pulsar    | Fortified  | Tyrannical | Xal'atath's Guile
+	{ [1] = 158, [2] = 9 , [3] = 10, [4] = 147, }, -- (2) Xal'atath's Bargain: Voidbound | Tyrannical | Fortified  | Xal'atath's Guile
+	{ [1] = 160, [2] = 10, [3] = 9 , [4] = 147, }, -- (3) Xal'atath's Bargain: Devour    | Fortified  | Tyrannical | Xal'atath's Guile
+	{ [1] = 148, [2] = 9 , [3] = 10, [4] = 147, }, -- (4) Xal'atath's Bargain: Ascendant | Tyrannical | Fortified  | Xal'atath's Guile
+	{ [1] = 158, [2] = 10, [3] = 9 , [4] = 147, }, -- (5) Xal'atath's Bargain: Voidbound | Fortified  | Tyrannical | Xal'atath's Guile
+	{ [1] = 162, [2] = 9 , [3] = 10, [4] = 147, }, -- (6) Xal'atath's Bargain: Pulsar    | Tyrannical | Fortified  | Xal'atath's Guile
+	{ [1] = 148, [2] = 10, [3] = 9 , [4] = 147, }, -- (7) Xal'atath's Bargain: Ascendant | Fortified  | Tyrannical | Xal'atath's Guile
+	{ [1] = 160, [2] = 9 , [3] = 10, [4] = 147, }, -- (8) Xal'atath's Bargain: Devour    | Tyrannical | Fortified  | Xal'atath's Guile
 }
 
 local scheduleEnabled = true
