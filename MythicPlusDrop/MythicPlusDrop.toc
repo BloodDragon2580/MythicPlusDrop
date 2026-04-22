@@ -1,6 +1,6 @@
-## Interface: 120001
+## Interface: 120005
 ## Title: |cffd6266cMythicPlusDrop|r
-## Version: 18.5
+## Version: 18.6
 ## Notes: Info for Mythic Dungeons
 ## Notes-ruRU: Информация для подземелий М+
 ## Author: BloodDragon2580
